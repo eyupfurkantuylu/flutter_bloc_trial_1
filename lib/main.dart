@@ -4,7 +4,7 @@ import 'package:flutter_bloc_trial_1/cubit/counter_cubit.dart';
 
 import 'other_page.dart';
 
-void main() => runApp(CounterApp());
+void main() => runApp(const CounterApp());
 
 class CounterApp extends StatelessWidget {
   const CounterApp({super.key});
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           FloatingActionButton(
             onPressed: () {
-              BlocProvider.of<CounterCubit>(context).increment();
+              context.read<CounterCubit>().increment();
             },
             heroTag: 'Increment',
             child: const Icon(Icons.add),
@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           FloatingActionButton(
             onPressed: () {
-              BlocProvider.of<CounterCubit>(context).decrement();
+              context.read<CounterCubit>().decrement();
             },
             heroTag: 'decrement',
             child: const Icon(Icons.remove),
